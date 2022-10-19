@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "EvolutionChart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" action="/Home/CreatePopulation">
+    <table>
+        <tr>
+            <td><label>Размер полуляции</label></td>
+            <td><input type='number' max="20" name="PopulationSize" value="5"/></td>
+            <td><input id="sendBtn" type="button" value="Submit" onclick="SendPopulation(this)" /></td>
+        </tr>
+    </table>
+</form>
+<input id="NextGeneration" value="Новое поколение" type="button" onclick="Evolve()" />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="column">
+    <div id="ChartArea" class="column-item">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div id="tableArea" class="column-item">
+
+    </div>
+</div>
+<script type="text/javascript">
+
+    function Evolve(){
+        $.ajax({
+            type:"POST",
+            url: "/Home/Evolve",
+            data:"",
+            success: function() {
+                DrawChartAndTable();
+            },
+            error: function(){
+                console.log("Error");
+            }
+        });
+    }
+    window.onload = function(){
+        SendPopulation(document.getElementById("sendBtn"));
+    }
+    function SendPopulation(btnClicked) {
+        var $form = $(btnClicked).parents('form');
+        $.ajax({
+            type: "POST",
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            success: function (response) {
+                DrawChartAndTable();
+            }
+        });
+
+        return false;// if it's a link to prevent post
+
+    }
+    function DrawChartAndTable(){
+        $('#myChart').remove();
+        $('#ChartArea').append('<canvas id="myChart" > </canvas>');
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetChartPoints",
+                data: "",
+                contextType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccessResult,
+                error: OnError
+            });
+
+            function OnSuccessResult (data){
+               console.log(data);
+                let _data=data;
+                let _chartLabels=_data[0];
+                let _chartData=_data[1];
+                let _color=_data[2];
+                let _individuals=data[3];
+                $("#table").remove();
+                $("#tableArea").append('<table id="table"></table>');
+                $("#tableArea>table").append('<tr><th>Особи</th></tr>');
+                _individuals.forEach(function (item, i, arr) {
+                    $('#tableArea > table').append('<tr><td>' + item + '</td></tr>');
+                });
+
+                new Chart("myChart",{
+                    type: "line",
+                    data: {
+                        labels: _chartLabels,
+                        datasets:[{
+                            backgroundColor: _color,
+                            data: _chartData
+                        }]
+                    }
+                });
+
+            }
+            function OnError(error) {
+
+            }
+    }
+
+</script>

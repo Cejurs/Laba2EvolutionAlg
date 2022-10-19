@@ -1,0 +1,27 @@
+﻿.column {
+    white-space: nowrap;
+}
+#chartArea{
+    width:400px;
+    height: 400px;
+}
+.column-item{
+    white-space: normal;
+    display: inline-block;
+    width: 60%;
+    vertical-align: top;
+}
+
+.column .column-item:first-child {
+    margin-right: 4%;
+}
+
+#table {
+    width: 450px;
+}
+table, tr,td {
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}
