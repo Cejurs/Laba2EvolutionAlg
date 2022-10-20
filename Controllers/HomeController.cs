@@ -8,8 +8,7 @@ namespace Evolution.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private static Population population;
-        //private static Population? parent=null;
+        private static Population population=new Population(5,true);
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -21,35 +20,41 @@ namespace Evolution.Controllers
         {
             return View();
         }
+
         [HttpGet]
-        public List<object> GetChartPoints()
+        public List<object> GerFunctionPoints()
         {
-            var data = new List<object>();
-            var labels=new List<string>();
+            var data=new List<object>();
+            var labels = new List<string>();
             var values = new List<double>();
             var colors = new List<string>();
-            // Берем точки наших особей
             for (int x = -10; x <= 53; x++)
             {
                 labels.Add(x.ToString());
                 values.Add(Function.GetY(x));
-                var random = new Random();
-                if (population.Contains(x))
-                {
-                    colors.Add("red");
-                }
-                else
-                {
-                    colors.Add("blue");
-                }
-                
+                colors.Add("blue");
+
             }
             data.Add(labels);
             data.Add(values);
             data.Add(colors);
+            return data;
+        }
+
+        [HttpGet]
+        public List<object> GetIndividualPoints()
+        {
+            var data = new List<object>();
+            var points = new List<object>();
             var individualsStrings = new List<string>();
-            population.Individuals.ToList().ForEach(p => individualsStrings.Add(p.ToString()));
+            population.Individuals.ToList().ForEach(p => {
+                individualsStrings.Add(p.ToString());
+                if(p.Gene>=-10 && p.Gene<=53) points.Add(p.Gene+10);
+                });
+            data.Add(points);
             data.Add(individualsStrings);
+            if (population.Contains(29)) data.Add(true);
+            else data.Add(false);
             return data;
         }
 
