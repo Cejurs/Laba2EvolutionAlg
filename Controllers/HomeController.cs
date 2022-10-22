@@ -26,14 +26,12 @@ namespace Evolution.Controllers
         {
             var data=new List<object>();
             var labels = new List<string>();
-            var values = new List<double>();
+            var values = Function.GetYPoints();
             var colors = new List<string>();
-            for (int x = -10; x <= 53; x++)
+            for (int x = Function.Left; x <= Function.Right; x++)
             {
                 labels.Add(x.ToString());
-                values.Add(Function.GetY(x));
                 colors.Add("blue");
-
             }
             data.Add(labels);
             data.Add(values);
@@ -49,11 +47,11 @@ namespace Evolution.Controllers
             var individualsStrings = new List<string>();
             population.Individuals.ToList().ForEach(p => {
                 individualsStrings.Add(p.ToString());
-                if(p.Gene>=-10 && p.Gene<=53) points.Add(p.Gene+10);
+                if(p.Gene>=Function.Left && p.Gene<=Function.Right) points.Add(p.Gene+10);
                 });
             data.Add(points);
             data.Add(individualsStrings);
-            if (population.Contains(29)) data.Add(true);
+            if (population.Contains(Function.MinX)) data.Add(true);
             else data.Add(false);
             return data;
         }

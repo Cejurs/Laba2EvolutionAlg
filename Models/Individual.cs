@@ -27,9 +27,8 @@ namespace Evolution.Models
 
         public int GetFittness()
         {
-            return Math.Abs(29-Gene);
+            return Math.Abs(Function.MinX-Gene);
         }
-
         public override string ToString()
         {
             var builder=new StringBuilder();
