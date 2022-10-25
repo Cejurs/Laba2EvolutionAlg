@@ -5,7 +5,7 @@ namespace Evolution.Models
     public class EvolutionAlgorithm
     {
         private static double uniformRate = 0.5;
-        private static double[] mutationRate = new double[8] { 0.15, 0.15, 0.15, 0.1, 0.07,0.05,0,0};
+        private static double mutationRate = 0.3;
         private static bool elitism = true;
 
         public static Population evolvePopulation(Population pop)
@@ -33,9 +33,9 @@ namespace Evolution.Models
                 Individual indiv1 = pop.GerRandomParent();
                 Individual indiv2 = pop.GerRandomParent();
                 var breakcount = 20;
-                while(indiv1.Gene == indiv2.Gene && breakcount!=0)
+                while(indiv1.GrayGene == indiv2.GrayGene && breakcount!=0)
                 {
-                     indiv2 = pop.GerRandomParent();
+                    indiv2 = pop.GerRandomParent();
                     breakcount--;
                 }
                 Individual newIndiv = Crossover(indiv1, indiv2);
@@ -63,7 +63,7 @@ namespace Evolution.Models
                 // Кроссовер
                 if (chance <= uniformRate)
                 {
-                    byte gene =(byte)indiv1.Gene;
+                    var gene = indiv1.GrayGene;
                     byte mask = (byte)Math.Pow(2, i);
                     if ((gene & mask) != 0)
                     {
@@ -72,7 +72,7 @@ namespace Evolution.Models
                 }
                 else
                 {
-                    byte gene =(byte)indiv2.Gene;
+                    byte gene =(byte)indiv2.GrayGene;
                     byte mask = (byte)Math.Pow(2, i);
                     if ((gene & mask) != 0)
                     {
@@ -80,7 +80,7 @@ namespace Evolution.Models
                     }                
                 }
             }
-            newSol.Gene = (sbyte)newGene;
+            newSol.GrayGene = newGene;
             return newSol;
         }
 
@@ -88,21 +88,19 @@ namespace Evolution.Models
         private static void Mutate(Individual indiv)
         {
             var rnd = new Random();
-            for(int i = 0; i < 8; i++)
+            double chance = rnd.Next(0, 10000) / 10000.0;
+            if (chance <= mutationRate)
             {
-                double chance = rnd.Next(0, 10000) / 10000.0;
-                if(chance <= mutationRate[i])
+                var geneIndex = rnd.Next(0, 8);
+                indiv.Type = IndividualType.Mutant;
+                byte gene = (byte)indiv.GrayGene;
+                // Создаем маску, чтобы узнать наличие бита
+                byte mask = (byte)Math.Pow(2, geneIndex);
+                if ((gene & mask) != 0)
                 {
-                    indiv.Type = IndividualType.Mutant;
-                    byte gene =(byte)indiv.Gene;
-                    // Создаем маску, чтобы узнать наличие бита
-                    byte mask = (byte)Math.Pow(2, i);
-                    if ((gene&mask)==0)
-                    {
-                        indiv.Gene +=(sbyte)mask;
-                    }
-                    else indiv.Gene-= (sbyte)mask;
+                    indiv.GrayGene -= mask;
                 }
+                else indiv.GrayGene += mask;
             }
         }
     }

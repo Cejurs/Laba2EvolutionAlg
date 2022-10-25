@@ -45,7 +45,6 @@ function CreateChart()
     });
 
     function OnSuccessResult(data) {
-        console.log(data);
         let _data = data;
         let _chartLabels = _data[0];
         let _chartData = _data[1];
@@ -105,15 +104,19 @@ function UpdateChartAndTable() {
 async function WhileEvolve() {
     document.getElementById("NextGeneration").disabled = true;
     document.getElementById("sendBtn").disabled = true;
+    let count = parseInt(document.getElementById("count").value);
     $.ajax({
         type: "POST",
         url: "/Home/Evolve",
         data: "",
         success: function () {
             UpdateChartAndTable();
-            if (!solutionFind) {
+            if (count > 0) {
                 sleep(200);
                 WhileEvolve();
+                count = count - 1;
+                document.getElementById("count").value--;
+                console.log(count);
             }
             else {
                 document.getElementById("NextGeneration").disabled = false;

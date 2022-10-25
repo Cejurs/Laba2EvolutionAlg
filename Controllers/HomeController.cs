@@ -47,12 +47,10 @@ namespace Evolution.Controllers
             var individualsStrings = new List<string>();
             population.Individuals.ToList().ForEach(p => {
                 individualsStrings.Add(p.ToString());
-                if(p.Gene>=Function.Left && p.Gene<=Function.Right) points.Add(p.Gene+10);
+                if(p.GetX()>=Function.Left && p.GetX()<=Function.Right) points.Add(p.GetX()-Function.Left);
                 });
             data.Add(points);
             data.Add(individualsStrings);
-            if (population.Contains(Function.MinX)) data.Add(true);
-            else data.Add(false);
             return data;
         }
 

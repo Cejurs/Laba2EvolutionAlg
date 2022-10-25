@@ -19,7 +19,7 @@
         
         public bool Contains(int x)
         {
-            return individuals.Select(ind => ind.Gene).Contains((sbyte)x);
+            return individuals.Select(ind => ind.GetX()).Contains(x);
         }
         public Individual GetFittest()
         {
