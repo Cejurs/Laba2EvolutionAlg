@@ -1,8 +1,0 @@
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Evolution.exe
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\appsettings.Development.json
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\appsettings.json
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Evolution.dll
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Evolution.deps.json
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Evolution.runtimeconfig.json
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Evolution.pdb
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\publish\Newtonsoft.Json.dll

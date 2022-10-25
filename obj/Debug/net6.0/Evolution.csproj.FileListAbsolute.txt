@@ -6,6 +6,7 @@ C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolu
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\bin\Debug\net6.0\Evolution.runtimeconfig.json
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\bin\Debug\net6.0\Evolution.dll
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\bin\Debug\net6.0\Evolution.pdb
+C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.csproj.AssemblyReference.cache
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.AssemblyInfoInputs.cache
@@ -19,10 +20,9 @@ C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolu
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\scopedcss\bundle\Evolution.styles.css
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\scopedcss\projectbundle\Evolution.bundle.scp.css
+C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.csproj.CopyComplete
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.dll
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\refint\Evolution.dll
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.pdb
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.genruntimeconfig.cache
 C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\ref\Evolution.dll
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\Cejurs\Desktop\Папка с папками\CИИ\Laba2\Evolution\Evolution\obj\Debug\net6.0\Evolution.csproj.CopyComplete
