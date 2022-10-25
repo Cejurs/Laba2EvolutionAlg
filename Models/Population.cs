@@ -10,9 +10,11 @@
             individuals = new Individual[populationSize];
             if (isInitial)
             {
+                var random = new Random();
                 for (int i = 0; i < populationSize; i++)
                 {
-                    individuals[i] = new Individual();
+                    var randomInt = random.Next(0, Function.Right + Function.Left);
+                    individuals[i] = new Individual(randomInt);
                 }
             }
         }

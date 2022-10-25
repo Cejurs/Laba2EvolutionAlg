@@ -51,7 +51,7 @@ namespace Evolution.Models
 
         private static Individual Crossover(Individual indiv1, Individual indiv2)
         {
-            Individual newSol = new Individual();
+            Individual newSol = new Individual(0);
             newSol.Parents[0] = indiv1;
             newSol.Parents[1] = indiv2;
             byte newGene = 0;

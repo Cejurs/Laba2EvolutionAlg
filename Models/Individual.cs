@@ -17,11 +17,9 @@ namespace Evolution.Models
         public Individual[] Parents { get;set; }
         public IndividualType Type { get; set; }
 
-        public Individual(IndividualType IndividualType=IndividualType.Normal)
+        public Individual(int gene,IndividualType IndividualType=IndividualType.Normal)
         {
-            var random = new Random();
-            var randomInt=random.Next(0, Function.Right + Function.Left);
-            GrayGene =(byte) BinToGray(randomInt);
+            GrayGene =(byte) BinToGray(gene);
             Type = IndividualType;
             Parents = new Individual[2];
         }
